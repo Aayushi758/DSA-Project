@@ -25,3 +25,4 @@ my_list.undo_delete()
 
 print("After Undo")
 my_list.display()
+my_list.binary_search(102)

@@ -62,3 +62,28 @@ class LinkedList:
         self.insert_beginning(student_record)
         print("Deletion undone:", student_record.name)
 
+    def binary_search(self, student_id):
+        records = []
+        current = self.head
+
+        while current is not None:
+            records.append(current.data)
+            current = current.next
+
+        records.sort(key=lambda record: record.student_id)
+
+        low = 0
+        high = len(records) - 1
+
+        while low <= high:
+            mid = (low + high) // 2
+
+            if records[mid].student_id == student_id:
+                print("Student Found:", records[mid].name)
+                return
+            elif records[mid].student_id < student_id:
+                low = mid + 1
+            else:
+                high = mid - 1
+
+        print("Student Not Found")
